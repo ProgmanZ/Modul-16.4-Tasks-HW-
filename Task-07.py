@@ -18,10 +18,14 @@ def search_size(size_skates_list, size_legs_list):
                 break
 
             else:
-                if size_leg <= max(size_legs_list):
+                if len(size_skates_list) == 0:
+                    print("Коньков меньше чем людей!")
+                    break
+                elif size_leg <= max(size_skates_list):
                     size_leg += 1
                 else:
-                    return count
+                    break
+    return count
 
 
 ask = ['Размер', 'пары :', 'Размер ноги', 'человека :']
@@ -32,4 +36,6 @@ n = enter_list(ask[0], ask[1], n)
 k = int(input("\nКол-во людей: "))
 k = enter_list(ask[2], ask[3], k)
 
-print("\nНаибольшее кол-во людей, которые могут взять ролики:", search_size(n, k))
+cnt = search_size(n, k)
+
+print("\nНаибольшее кол-во людей, которые могут взять ролики:", cnt)
