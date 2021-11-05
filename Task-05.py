@@ -14,11 +14,14 @@ violator_songs = [
 
 quantity = int(input('Сколько песен выбрать? '))
 count = 0
+user_list = []
 
 for i in range(quantity):
     song = input(f'Название {i + 1} песни: ')
     for song_name in violator_songs:
         if song == song_name[0]:
             count += song_name[1]
+            user_list.append(song_name)
 
 print(f'\nОбщее время звучания песен: {round(count,2)} минут.')
+print('Ваш плейлист: ', user_list)
