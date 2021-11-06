@@ -1,14 +1,14 @@
 # Задача 8. Считалка
 
 
-def del_position(step, start_position, list_people):
-    ppl = len(list_people)
-    while start_position <= ppl and step != 0:
-        start_position += 1
+def del_position(step, position, list_people):
+    quantity = len(list_people)
+    while step != 1:
+        position += 1
         step -= 1
-        if start_position == ppl:
-            start_position = 0
-    return start_position
+        if position == quantity:
+            position = 0
+    return position
 
 
 peoples = int(input("Кол-во человек: "))
@@ -25,7 +25,10 @@ while count_peoples != 1:
     del_part = del_position(number, start, participants)
     print("Выбывает человек под номером", participants[del_part])
     participants.remove(participants[del_part])
-    start = del_part + 1
+    if del_part >= len(participants):
+        start = 0
+    else:
+        start = del_part
     count_peoples = len(participants)
 
-print("Остался человек под номером", participants[0])
+print("\nОстался человек под номером", participants[0])
